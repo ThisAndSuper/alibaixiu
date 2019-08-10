@@ -130,7 +130,74 @@ $('tbody').on('click', '.modify', function () {
     });
 });
 
-//添加的时候
+//点击删除
+$('tbody').on('click','.del',function(){
+    let id=$(this).parent().attr('data-id');
+    if(confirm('确定删吗？')){
+        $.ajax({
+            type:'delete',
+            url:'/users/'+id,
+            success:function(data){
+                console.log(data);
+                
+                location.reload();
+            }
+        });
+    }
+});
+
+//点击后将总的checked复制给所有
+$('.selectAll').on('change',function(){
+    $('.userChecked').prop('checked',$(this).prop('checked'));
+    if($('.selectAll').prop('checked')==true){
+        $('.piLiang').show();
+    }
+    else {
+        $('.piLiang').hide();
+    }
+});
+
+
+    //当点击其他的按钮时，总按钮要变化
+$('tbody').on('change','input',function(){
+    
+    if($('.userChecked').length==$('.userChecked').filter(':checked').length){
+        $('.selectAll').prop('checked',true);
+    }
+    else{
+        $('.selectAll').prop('checked',false);
+    }
+    if($('tbody input:checked').length>1){
+        $('.piLiang').show();
+    }
+    else {
+        $('.piLiang').hide();
+    }
+});
+
+//点击批量删除按钮进行删除
+var arrB=new Array();
+$('.piLiang').on('click',function(){
+    let checkedInput=$('tbody input:checked');
+    checkedInput.each(function(index,ele){
+        let id= ele.parentNode.parentNode.children[6].getAttribute('data-id');
+        arrB.push(id);
+    });
+    let strB= arrB.join('-');
+        $.ajax({
+            type:'delete',
+            url:'/users/'+strB,
+            success:function(data){
+                location.reload(true);
+            }
+    });
+});
+
+
+
+
+
+
 
 
 

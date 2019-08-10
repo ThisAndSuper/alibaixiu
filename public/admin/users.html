@@ -86,12 +86,12 @@
         <div class="col-md-8">
           <div class="page-action">
             <!-- show when multiple checked -->
-            <a class="btn btn-danger btn-sm" href="javascript:;" style="display: none">批量删除</a>
+            <a class="btn btn-danger btn-sm piLiang" href="javascript:;" style="display: none">批量删除</a>
           </div>
           <table class="table table-striped table-bordered table-hover">
             <thead>
               <tr>
-                <th class="text-center" width="40"><input type="checkbox"></th>
+                <th class="text-center" width="40"><input type="checkbox" class="selectAll"></th>
                 <th class="text-center" width="80">头像</th>
                 <th>邮箱</th>
                 <th>昵称</th>
@@ -101,42 +101,6 @@
               </tr>
             </thead>
             <tbody>
-              <!-- <tr>
-                <td class="text-center"><input type="checkbox"></td>
-                <td class="text-center"><img class="avatar" src="../assets/img/default.png"></td>
-                <td>coder@itcast.cn</td>
-                <td>coder</td>
-                <td>激活</td>
-                <td>普通用户</td>
-                <td class="text-center">
-                  <a href="javascript:;" class="btn btn-default btn-xs">编辑</a>
-                  <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
-                </td>
-              </tr>
-              <tr>
-                <td class="text-center"><input type="checkbox"></td>
-                <td class="text-center"><img class="avatar" src="../assets/img/default.png"></td>
-                <td>coder@itcast.cn</td>
-                <td>coder</td>
-                <td>激活</td>
-                <td>普通用户</td>
-                <td class="text-center">
-                  <a href="javascript:;" class="btn btn-default btn-xs">编辑</a>
-                  <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
-                </td>
-              </tr>
-              <tr>
-                <td class="text-center"><input type="checkbox"></td>
-                <td class="text-center"><img class="avatar" src="../assets/img/default.png"></td>
-                <td>coder@itcast.cn</td>
-                <td>coder</td>
-                <td>激活</td>
-                <td>普通用户</td>
-                <td class="text-center">
-                  <a href="javascript:;" class="btn btn-default btn-xs">编辑</a>
-                  <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
-                </td>
-              </tr> -->
             </tbody>
           </table>
         </div>
@@ -183,7 +147,7 @@
   <script type="text/html" id='tml'>
     {{each data}}
     <tr>
-        <td class="text-center"><input type="checkbox"></td>
+        <td class="text-center"><input type="checkbox" class='userChecked'></td>
             <td class="text-center"><img class="avatar" src="{{$value.avatar}}"></td>
                 <td>{{$value.email}}</td>
                 <td>{{$value.nickName}}</td>
@@ -191,7 +155,7 @@
                 <td>{{$value.role=='admin'?'超级管理员':'普通用户'}}</td>
                 <td class="text-center" data-id='{{$value._id}}'>
                     <a href="javascript:;" class="btn btn-default btn-xs modify">编辑</a>
-                    <a href="javascript:;" class="btn btn-danger btn-xs delete">删除</a>
+                    <a href="javascript:;" class="btn btn-danger btn-xs del">删除</a>
                 </td>
               </tr>
     {{/each}}
