@@ -24,6 +24,7 @@ $('.btnUP').on('click', function () {
             arr.push(result);
             let html = template('tml', { data: arr });
             $('tbody').html(html);
+            location.reload();
         },
         error: function (data) {
             // console.log('错误了');

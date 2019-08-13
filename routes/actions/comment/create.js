@@ -3,11 +3,12 @@ const { Comment, validateComment } = require('../../../model/Comment');
 const { Post } = require('../../../model/Post');
 
 module.exports = async (req, res) => {
+	
 	// 数据格式校验
 	const { error } = validateComment(req.fields);
 	// 格式不符合要求
 	if (error) return res.status(400).send({message: error.message})
-	// 创建评论
+	// 创建评论f
 	const comment = new Comment(req.fields);
 	// 保存评论
 	await comment.save();

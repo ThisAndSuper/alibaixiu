@@ -2,7 +2,11 @@
 const { Post, validatePost } = require('../../../model/Post');
 
 module.exports = async (req, res) => {
+	// console.log(10000000);
+	
 	// 数据格式校验
+	// console.log(req.fields);
+	
 	const { error } = validatePost(req.fields);
 	// 格式不符合要求
 	if (error) return res.status(400).send({message: error.details});

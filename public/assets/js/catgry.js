@@ -5,7 +5,7 @@ $.ajax({
     type: 'get',
     url: '/categories',
     success: function (result) {
-        console.log(result);
+        // console.log(result);
 
         arr = result;
         let html = template('tml', { data: arr });
@@ -19,7 +19,7 @@ $('.btnUP').on('click', function () {
         url: '/categories',
         data: $('.userForm').serialize(),
         success: function (result) {
-            console.log(result);
+            // console.log(result);
 
             arr.push(result);
             let html = template('tml', { data: arr });
@@ -44,13 +44,13 @@ $('tbody').on('click', '.modifyInfo', function () {
     let title = $(this).parent().parent().children().eq(1);
     let className = $(this).parent().parent().children().eq(2);
     let id = $(this).attr('data-id');
-    console.log(title.text());
-    console.log(className.text());
+    // console.log(title.text());
+    // console.log(className.text());
 
     $('.catogyName').val(title.text());
     $('.imgName').val(className.text());
-    console.log(id);
-    console.log($('.userForm').serialize());
+    // console.log(id);
+    // console.log($('.userForm').serialize());
 
     $('.modifyBtn').on('click', function () {
         $.ajax({
@@ -85,7 +85,7 @@ $('tbody').on('click', '.del', function () {
             type: 'delete',
             url: '/categories/' + id,
             success: function (data) {
-                console.log(data);
+                // console.log(data);
                 location.reload();
             }
         });

@@ -6,29 +6,59 @@
   <title>阿里百秀-发现生活，发现美!</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.css">
+  <script type="text/html" id="tml11">
+    <h3>{{data[0].category.title}}</h3>
+    {{each data}}
+
+    <div class="entry">
+      <div class="head">
+        <span class="sort">{{data[0].category.title}}</span>
+        <a href="/detail.html?cid={{$value._id}}">{{$value.title}}</a>
+      </div>
+      <div class="main">
+        <p class="info">{{$value.author.role}} 发表于 {{$value.createAt.substr(0,10)}}</p>
+        <p class="brief">{{$value.content}}</p>
+        <p class="extra">
+          <span class="reading">阅读({{$value.meta.views}})</span>
+          <span class="comment">评论({{$value.meta.comments}})</span>
+          <a href="javascript:;" class="like" data-id="{{$value._id}}">
+            <i class="fa fa-thumbs-up"></i>
+            <span class="zan">赞({{$value.meta.likes}})</span>
+          </a>
+          <a href="javascript:;" class="tags">
+            分类：<span>{{$value.category.title}}</span>
+          </a>
+        </p>
+        <a href="javascript:;" class="thumb">
+          <img src="{{$value.thumbnail}}" alt="">
+        </a>
+      </div>
+    </div>
+    {{/each}}
+  </script>
 </head>
 <body>
   <div class="wrapper">
     <div class="topnav">
-      <ul>
-        <li><a href="javascript:;"><i class="fa fa-glass"></i>奇趣事</a></li>
+      <ul class="navtemp">
+        <!-- <li><a href="javascript:;"><i class="fa fa-glass"></i>奇趣事</a></li>
         <li><a href="javascript:;"><i class="fa fa-phone"></i>潮科技</a></li>
         <li><a href="list.html"><i class="fa fa-fire"></i>会生活</a></li>
-        <li><a href="javascript:;"><i class="fa fa-gift"></i>美奇迹</a></li>
+        <li><a href="javascript:;"><i class="fa fa-gift"></i>美奇迹</a></li> -->
       </ul>
     </div>
     <div class="header">
       <h1 class="logo"><a href="index.html"><img src="assets/img/logo.png" alt=""></a></h1>
-      <ul class="nav">
-        <li><a href="javascript:;"><i class="fa fa-glass"></i>奇趣事</a></li>
+      <ul class="nav navtemp">
+        <!-- <li><a href="javascript:;"><i class="fa fa-glass"></i>奇趣事</a></li>
         <li><a href="javascript:;"><i class="fa fa-phone"></i>潮科技</a></li>
         <li><a href="javascript:;"><i class="fa fa-fire"></i>会生活</a></li>
-        <li><a href="javascript:;"><i class="fa fa-gift"></i>美奇迹</a></li>
+        <li><a href="javascript:;"><i class="fa fa-gift"></i>美奇迹</a></li> -->
       </ul>
       <div class="search">
         <form>
           <input type="text" class="keys" placeholder="输入关键字">
-          <input type="submit" class="btn" value="搜索">
+          <input type="button" class="btn" value="搜索">
         </form>
       </div>
     </div>
@@ -38,7 +68,7 @@
         <div class="body search">
           <form>
             <input type="text" class="keys" placeholder="输入关键字">
-            <input type="submit" class="btn" value="搜索">
+            <input type="button" class="btn" value="搜索">
           </form>
         </div>
       </div>
@@ -178,8 +208,8 @@
     </div>
     <div class="content">
       <div class="panel new">
-        <h3>会生活</h3>
-        <div class="entry">
+        
+        <!-- <div class="entry">
           <div class="head">
             <a href="detail.html">星球大战：原力觉醒视频演示 电影票68</a>
           </div>
@@ -247,7 +277,7 @@
               <img src="uploads/hots_2.jpg" alt="">
             </a>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="footer">
@@ -256,3 +286,7 @@
   </div>
 </body>
 </html>
+<script src="assets/vendors/jquery/jquery.min.js"></script>
+<script src="assets/vendors/art-template/template-web.js"></script>
+<script src="assets/js/home.js"></script>
+<script src="assets/js/list.js"></script>

@@ -6,7 +6,7 @@ const { Category, validateCategory } = require('../../../model/Category');
 module.exports = async (req, res) => {
 	// 待修改用户id
 	req.fields._id = req.params['id'];
-	console.log()
+	// console.log()
 	// 定义对象验证规则
 	const schema = {
 		_id: Joi.string().required().regex(/^[0-9a-fA-F]{24}$/).error(new Error('用户id非法'))

@@ -19,7 +19,7 @@ $('#feature').on('change',function(){
         processData:false,
         contentType:false,
         success:function(data){
-            console.log(data[0].cover);
+            // console.log(data[0].cover);
             $('.showImg').attr('src',data[0].cover);
             $('.showImg').show();
             $('.thumbnail').val(data[0].cover);
@@ -31,14 +31,14 @@ $('#feature').on('change',function(){
 //将信息进行保存
 $('.saveBtn').on('click',function(){
     let params= $('.saveForm').serialize();
+    alert(params);
+    // alert(params);
     $.ajax({
         type:'post',
         url:'/posts',
         data:params,
         success:function(data){
-            console.log(data);
             location.href='/admin/posts.html'
-            
         }
     });
     

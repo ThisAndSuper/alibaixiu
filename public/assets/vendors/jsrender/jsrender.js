@@ -213,7 +213,7 @@ function noop() {
 function dbgBreak(val) {
 	// Usage examples: {{dbg:...}}, {{:~dbg(...)}}, {{dbg .../}}, {^{for ... onAfterLink=~dbg}} etc.
 	try {
-		console.log("JsRender dbg breakpoint: " + val);
+		// console.log("JsRender dbg breakpoint: " + val);
 		throw "dbg breakpoint"; // To break here, stop on caught exceptions.
 	}
 	catch (e) {}

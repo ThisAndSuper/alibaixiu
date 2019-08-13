@@ -79,6 +79,7 @@ const validatePost = post => {
 		thumbnail: Joi.any().empty(),
 		content: Joi.string(),
 		category: Joi.string().regex(/^[0-9a-fA-F]{24}$/).required().error(new Error('分类id格式非法'))
+
 	};
 	// 验证
 	return Joi.validate(post, schema, {
@@ -94,3 +95,5 @@ module.exports = {
 	Post,
 	validatePost
 };
+
+  /*"bcrypt": "^3.0.2",*/
